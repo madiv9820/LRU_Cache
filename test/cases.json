@@ -1,0 +1,83 @@
+[
+    {
+        "title": "🗑️ Basic Eviction",
+        "input": [
+            ["LRUCache", "put", "put", "get", "put", "get"],
+            [[2], [1, 1], [2, 2], [1], [3, 3], [2]]
+        ],
+        "output": [null, null, null, 1, null, -1],
+        "description": "🔄 Evicts key 2 after key 1 becomes the most recently used key."
+    },
+    {
+        "title": "♻️ Multiple Evictions",
+        "input": [
+            ["LRUCache", "put", "put", "get", "put", "get", "put", "get", "get", "get"],
+            [[2], [1, 1], [2, 2], [1], [3, 3], [2], [4, 4], [1], [3], [4]]
+        ],
+        "output": [null, null, null, 1, null, -1, null, -1, 3, 4],
+        "description": "🧠 Maintains usage order correctly across multiple insertions and evictions."
+    },
+    {
+        "title": "✏️ Update Existing Key",
+        "input": [
+            ["LRUCache", "put", "put", "put", "get", "get"],
+            [[2], [1, 10], [2, 20], [1, 100], [1], [2]]
+        ],
+        "output": [null, null, null, null, 100, 20],
+        "description": "🔄 Updates an existing key and marks it as the most recently used entry."
+    },
+    {
+        "title": "🛡️ Updated Key Prevents Eviction",
+        "input": [
+            ["LRUCache", "put", "put", "put", "put", "get", "get"],
+            [[2], [1, 10], [2, 20], [1, 100], [3, 30], [1], [2]]
+        ],
+        "output": [null, null, null, null, null, 100, -1],
+        "description": "⭐ Updating key 1 makes key 2 the least recently used entry and causes its eviction."
+    },
+    {
+        "title": "📦 Single Capacity",
+        "input": [
+            ["LRUCache", "put", "get", "put", "get", "get"],
+            [[1], [1, 10], [1], [2, 20], [1], [2]]
+        ],
+        "output": [null, null, 10, null, -1, 20],
+        "description": "1️⃣ With capacity one, every new key evicts the previous key."
+    },
+    {
+        "title": "🔎 Missing Keys",
+        "input": [
+            ["LRUCache", "get", "put", "get", "get"],
+            [[2], [99], [1, 10], [99], [1]]
+        ],
+        "output": [null, -1, null, -1, 10],
+        "description": "❌ Returns -1 for missing keys without affecting the cache state."
+    },
+    {
+        "title": "🔄 Access Changes Recency",
+        "input": [
+            ["LRUCache", "put", "put", "get", "put", "get", "get"],
+            [[2], [1, 10], [2, 20], [1], [3, 30], [2], [3]]
+        ],
+        "output": [null, null, null, 10, null, -1, 30],
+        "description": "🕐 Accessing key 1 changes the recency order and causes key 2 to be evicted."
+    },
+    {
+        "title": "🔁 Repeated Access",
+        "input": [
+            ["LRUCache", "put", "put", "get", "get", "put", "get", "get"],
+            [[2], [1, 10], [2, 20], [1], [1], [3, 30], [1], [2]]
+        ],
+        "output": [null, null, null, 10, 10, null, 10, -1],
+        "description": "❤️ Repeatedly accessing key 1 keeps it recently used and protects it from eviction."
+    },
+    {
+        "title": "0️⃣ Zero-Valued Entries",
+        "input": [
+            ["LRUCache", "put", "get", "put", "get"],
+            [[2], [0, 0], [0], [1, 0], [0]]
+        ],
+        "output": [null, null, 0, null, 0],
+        "description": "🎯 Correctly handles entries whose keys and values are zero."
+    }
+]
