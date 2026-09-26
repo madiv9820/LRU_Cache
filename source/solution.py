@@ -8,7 +8,7 @@ LRUCache method calls.
 ⚙️ Subsequent operations execute get() and put() in sequence.
 📋 Results are collected in the same order as the operations.
 
-The actual LRU logic is implemented inside LRUCache.
+The actual LRU logic is implemented inside LRUCache.  
 """
 
 from typing import Any, List
