@@ -1,4 +1,4 @@
-Cython==3.2.4
+Cython==3.3.0
 prettytable==3.17.0
 tabulate==0.10.0
 timeout-decorator==0.5.0
